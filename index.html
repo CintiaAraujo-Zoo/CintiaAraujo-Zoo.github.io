@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cintia M. Araujo — Animal Scientist</title>
+    <meta name="description" content="Animal Scientist · PhD researcher in Precision Livestock Technology · UNIVASF / UIUC">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --green:      #2e8b6e;
+            --green-light:#e6f4f0;
+            --green-mid:  #4aab8a;
+            --blue:       #2e6b8b;
+            --blue-light: #e6f0f4;
+            --text:       #1c2b2e;
+            --text-muted: #5a7070;
+            --border:     #dde8e4;
+            --white:      #ffffff;
+            --bg:         #f8fbfa;
+            --radius:     10px;
+            --shadow:     0 2px 18px rgba(46,139,110,0.08);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+        /* NAV */
+        nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; padding: 0 5%; height: 60px; }
+        .nav-name { font-family: 'Lora', serif; font-weight: 600; font-size: 1.05rem; color: var(--green); }
+        .nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.03em; text-transform: uppercase; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--green); }
+        .lang-toggle { display: flex; gap: 4px; background: var(--green-light); border-radius: 20px; padding: 3px; }
+        .lang-btn { border: none; background: transparent; padding: 4px 12px; border-radius: 16px; font-size: 0.8rem; font-weight: 500; cursor: pointer; color: var(--text-muted); transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+        .lang-btn.active { background: var(--green); color: white; }
+
+        /* HERO */
+        .hero { display: grid; grid-template-columns: 1fr 320px; gap: 60px; align-items: center; max-width: 1100px; margin: 0 auto; padding: 80px 5% 70px; }
+        .hero-text h1 { font-family: 'Lora', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 600; line-height: 1.2; color: var(--text); margin-bottom: 8px; }
+        .hero-text h1 span { color: var(--green); }
+        .hero-subtitle { font-size: 1rem; color: var(--text-muted); margin-bottom: 24px; font-style: italic; font-family: 'Lora', serif; }
+        .affiliations { display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px; }
+        .affil-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; color: var(--text-muted); }
+        .affil-item i { color: var(--green); width: 16px; font-size: 0.85rem; margin-top: 4px; flex-shrink: 0; }
+        .hero-links { display: flex; gap: 10px; flex-wrap: wrap; }
+        .hero-link { display: inline-flex; align-items: center; gap: 7px; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 0.86rem; font-weight: 500; transition: all 0.2s; }
+        .hero-link.primary { background: var(--green); color: white; }
+        .hero-link.primary:hover { background: #256f57; }
+        .hero-link.secondary { border: 1.5px solid var(--border); color: var(--text-muted); background: white; }
+        .hero-link.secondary:hover { border-color: var(--green); color: var(--green); }
+        .hero-photo { display: flex; justify-content: center; }
+        .photo-frame { width: 260px; height: 260px; border-radius: 50%; overflow: hidden; border: 4px solid var(--green-light); outline: 2px solid var(--border); box-shadow: var(--shadow); }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+        /* SECTIONS */
+        section { max-width: 1100px; margin: 0 auto; padding: 64px 5%; }
+        section + section { border-top: 1px solid var(--border); }
+        .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+        .section-title { font-family: 'Lora', serif; font-size: 1.7rem; font-weight: 600; color: var(--text); margin-bottom: 28px; }
+
+        /* ABOUT */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+        .about-text p { color: var(--text-muted); margin-bottom: 16px; font-size: 0.96rem; }
+        .interests-list { display: flex; flex-wrap: wrap; gap: 9px; }
+        .interest-tag { background: var(--green-light); color: var(--green); padding: 5px 14px; border-radius: 20px; font-size: 0.84rem; font-weight: 500; border: 1px solid #c0dfd6; }
+
+        /* NEWS */
+        .news-card { display: grid; grid-template-columns: 200px 1fr; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: box-shadow 0.2s; }
+        .news-card:hover { box-shadow: var(--shadow); }
+        .news-badge { background: var(--green); color: white; padding: 32px 24px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 10px; }
+        .news-badge i { font-size: 2rem; opacity: 0.9; }
+        .news-badge .award { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600; line-height: 1.3; }
+        .news-badge .award-sub { font-size: 0.78rem; opacity: 0.85; }
+        .news-body { padding: 28px; }
+        .news-meta { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; display: flex; gap: 16px; flex-wrap: wrap; }
+        .news-body h3 { font-family: 'Lora', serif; font-size: 1.1rem; margin-bottom: 12px; color: var(--text); line-height: 1.4; }
+        .news-body p { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px; }
+        .news-link { font-size: 0.85rem; color: var(--green); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 5px; }
+        .news-link:hover { text-decoration: underline; }
+
+        /* PROJECTS */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .project-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; background: white; transition: all 0.2s; display: flex; flex-direction: column; }
+        .project-card:hover { border-color: var(--green-mid); box-shadow: var(--shadow); transform: translateY(-2px); }
+        .project-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--green-light); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 1.2rem; color: var(--green); }
+        .project-card h3 { font-family: 'Lora', serif; font-size: 1.1rem; margin-bottom: 8px; color: var(--text); }
+        .project-card p { font-size: 0.92rem; color: var(--text-muted); flex: 1; margin-bottom: 20px; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+        .project-tag { background: var(--blue-light); color: var(--blue); font-size: 0.78rem; padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+        .project-links { display: flex; gap: 10px; }
+        .project-btn { text-decoration: none; font-size: 0.83rem; font-weight: 500; padding: 6px 14px; border-radius: 5px; display: inline-flex; align-items: center; gap: 5px; transition: all 0.2s; }
+        .project-btn.solid { background: var(--green); color: white; }
+        .project-btn.solid:hover { background: #256f57; }
+        .project-btn.outline { border: 1.5px solid var(--border); color: var(--text-muted); }
+        .project-btn.outline:hover { border-color: var(--green); color: var(--green); }
+
+        /* PUBLICATIONS */
+        .pub-list { display: flex; flex-direction: column; gap: 20px; }
+        .pub-item { padding: 20px 24px; border-left: 3px solid var(--green); background: var(--bg); border-radius: 0 var(--radius) var(--radius) 0; transition: background 0.2s; }
+        .pub-item:hover { background: var(--green-light); }
+        .pub-title { font-family: 'Lora', serif; font-size: 0.97rem; color: var(--text); margin-bottom: 5px; font-weight: 600; line-height: 1.4; }
+        .pub-authors { font-size: 0.86rem; color: var(--text-muted); margin-bottom: 5px; }
+        .pub-journal { font-size: 0.84rem; color: var(--green); font-style: italic; }
+        .pub-doi { font-size: 0.82rem; color: var(--text-muted); text-decoration: none; margin-top: 4px; display: inline-block; }
+        .pub-doi:hover { color: var(--green); }
+
+        /* FOOTER */
+        footer { background: var(--text); color: rgba(255,255,255,0.6); text-align: center; padding: 36px 5%; font-size: 0.88rem; }
+        footer a { color: var(--green-mid); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; text-align: center; padding: 48px 5%; }
+            .hero-photo { order: -1; }
+            .photo-frame { width: 200px; height: 200px; }
+            .affiliations { align-items: flex-start; text-align: left; }
+            .hero-links { justify-content: center; }
+            .about-grid { grid-template-columns: 1fr; }
+            .news-card { grid-template-columns: 1fr; }
+            .nav-links { gap: 12px; }
+        }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-text { animation: fadeUp 0.6s ease both; }
+        .hero-photo { animation: fadeUp 0.6s 0.15s ease both; }
+
+        /* Language */
+        [data-lang] { display: none; }
+        [data-lang].visible { display: block; }
+        span[data-lang].visible, a[data-lang].visible { display: inline; }
+        i[data-lang].visible { display: inline; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <span class="nav-name">Cintia M. Araujo</span>
+    <ul class="nav-links">
+        <li><a href="#about"        data-en="About"        data-pt="Sobre"       >About</a></li>
+        <li><a href="#news"         data-en="News"         data-pt="Notícias"    >News</a></li>
+        <li><a href="#projects"     data-en="Projects"     data-pt="Projetos"    >Projects</a></li>
+        <li><a href="#publications" data-en="Publications" data-pt="Publicações" >Publications</a></li>
+        <li>
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="setLang('en')">EN</button>
+                <button class="lang-btn"        onclick="setLang('pt')">PT</button>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-text">
+        <p class="section-label">
+            <span data-lang="en" class="visible">Animal Scientist · Researcher · Developer</span>
+            <span data-lang="pt">Zootecnista · Pesquisadora · Desenvolvedora</span>
+        </p>
+        <h1>Cintia <span>Mirely</span><br>de Araujo</h1>
+        <p class="hero-subtitle">
+            <span data-lang="en" class="visible">Precision Livestock Technology & Ruminant Nutrition</span>
+            <span data-lang="pt">Zootecnia de Precisão & Nutrição de Ruminantes</span>
+        </p>
+        <div class="affiliations">
+            <div class="affil-item">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>
+                    <span data-lang="en" class="visible">PhD Candidate — UNIVASF, Brazil</span>
+                    <span data-lang="pt">Doutoranda — UNIVASF, Brasil</span>
+                </span>
+            </div>
+            <div class="affil-item">
+                <i class="fa-solid fa-flask"></i>
+                <span>
+                    <span data-lang="en" class="visible">Visiting Researcher — University of Illinois at Urbana-Champaign (UIUC)</span>
+                    <span data-lang="pt">Pesquisadora Visitante — Universidade de Illinois em Urbana-Champaign (UIUC)</span>
+                </span>
+            </div>
+            <div class="affil-item">
+                <i class="fa-solid fa-chalkboard-teacher"></i>
+                <span>
+                    <span data-lang="en" class="visible">Faculty — UESPI, Campus Corrente</span>
+                    <span data-lang="pt">Docente — UESPI, Campus Corrente</span>
+                </span>
+            </div>
+        </div>
+        <div class="hero-links">
+            <a href="https://github.com/CintiaAraujo-Zoo" target="_blank" class="hero-link primary">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="https://orcid.org/0000-0002-7035-7190" target="_blank" class="hero-link secondary">
+                <i class="fa-brands fa-orcid"></i> ORCID
+            </a>
+            <a href="http://lattes.cnpq.br/8418126351046298" target="_blank" class="hero-link secondary">
+                <i class="fa-solid fa-id-card"></i> Lattes
+            </a>
+            <a href="https://www.linkedin.com/in/cintia-araujo-261665a2/" target="_blank" class="hero-link secondary">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
+    </div>
+    <div class="hero-photo">
+        <div class="photo-frame">
+            <!-- Put your photo file (photo.jpg) in the same folder as this index.html -->
+            <img src="photo.jpg" alt="Cintia M. Araujo">
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <p class="section-label">
+        <span data-lang="en" class="visible">Who I am</span>
+        <span data-lang="pt">Quem sou</span>
+    </p>
+    <h2 class="section-title">
+        <span data-lang="en" class="visible">About</span>
+        <span data-lang="pt">Sobre</span>
+    </h2>
+    <div class="about-grid">
+        <div class="about-text">
+            <p data-lang="en" class="visible">
+                I am an animal scientist and faculty member at UESPI (Campus Corrente, Piauí, Brazil), 
+                currently completing a sandwich doctorate at the Animal Sciences Laboratory of the 
+                University of Illinois at Urbana-Champaign (UIUC), supported by CAPES/PDSE.
+            </p>
+            <p data-lang="en" class="visible">
+                My research focuses on developing accessible precision livestock technologies — 
+                combining depth imaging, computer vision, machine learning, and ruminant nutrition — 
+                to support producers of all scales. I build open-source tools that make scientific 
+                methods more accessible to researchers and practitioners worldwide.
+            </p>
+            <p data-lang="pt">
+                Sou zootecnista e docente da UESPI (Campus Corrente, Piauí), atualmente realizando 
+                doutorado sanduíche no Animal Sciences Laboratory da Universidade de Illinois em 
+                Urbana-Champaign (UIUC), com apoio da CAPES/PDSE.
+            </p>
+            <p data-lang="pt">
+                Minha pesquisa foca no desenvolvimento de tecnologias acessíveis de zootecnia de 
+                precisão — combinando imagens de profundidade, visão computacional, aprendizado de 
+                máquina e nutrição de ruminantes — para apoiar produtores de todos os portes. 
+                Desenvolvo ferramentas de código aberto para tornar métodos científicos mais acessíveis.
+            </p>
+        </div>
+        <div>
+            <p class="section-label" style="margin-bottom:14px;">
+                <span data-lang="en" class="visible">Research Interests</span>
+                <span data-lang="pt">Áreas de Interesse</span>
+            </p>
+            <div class="interests-list">
+                <span class="interest-tag" data-lang="en" >Precision Livestock Technology</span>
+                <span class="interest-tag" data-lang="pt">Zootecnia de Precisão</span>
+                <span class="interest-tag" data-lang="en" >Ruminant Nutrition</span>
+                <span class="interest-tag" data-lang="pt">Nutrição de Ruminantes</span>
+                <span class="interest-tag" data-lang="en" >Computer Vision</span>
+                <span class="interest-tag" data-lang="pt">Visão Computacional</span>
+                <span class="interest-tag" data-lang="en" >Depth Imaging</span>
+                <span class="interest-tag" data-lang="pt">Imagens de Profundidade</span>
+                <span class="interest-tag" data-lang="en" >Machine Learning</span>
+                <span class="interest-tag" data-lang="pt">Aprendizado de Máquina</span>
+                <span class="interest-tag" data-lang="en" >Carcass Evaluation</span>
+                <span class="interest-tag" data-lang="pt">Avaliação de Carcaça</span>
+                <span class="interest-tag" data-lang="en" >Animal Biometrics</span>
+                <span class="interest-tag" data-lang="pt">Biometria Animal</span>
+                <span class="interest-tag" data-lang="en" >Infrared Thermography</span>
+                <span class="interest-tag" data-lang="pt">Termografia Infravermelha</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+    <p class="section-label">
+        <span data-lang="en" class="visible">Latest</span>
+        <span data-lang="pt">Recentes</span>
+    </p>
+    <h2 class="section-title">
+        <span data-lang="en" class="visible">News & Highlights</span>
+        <span data-lang="pt">Notícias & Destaques</span>
+    </h2>
+    <div class="news-card">
+        <div class="news-badge">
+            <i class="fa-solid fa-trophy"></i>
+            <span class="award">2nd Place</span>
+            <span class="award-sub">Smart Livestock<br>Category</span>
+        </div>
+        <div class="news-body">
+            <div class="news-meta">
+                <span><i class="fa-regular fa-calendar"></i> March 2026</span>
+                <span><i class="fa-solid fa-location-dot"></i> UIUC — Urbana-Champaign, IL</span>
+            </div>
+            <h3 data-lang="en" class="visible">2nd Place at the Precision & Digital Agriculture Hackathon — UIUC</h3>
+            <h3 data-lang="pt">2º Lugar no Hackathon de Agricultura de Precisão e Digital — UIUC</h3>
+            <p data-lang="en" class="visible">
+                As part of team <strong>Confusion_Matrix</strong>, we developed a livestock trough 
+                monitoring system using image analysis and data reliability indicators at the 
+                John Deere Technology Innovation Center (Center for Digital Agriculture, UIUC). 
+                The solution helps producers assess the confidence level of sensor data for 
+                better decision-making in animal production systems.
+            </p>
+            <p data-lang="pt">
+                Como parte da equipe <strong>Confusion_Matrix</strong>, desenvolvemos um sistema de 
+                monitoramento de cochos utilizando análise de imagens e indicadores de confiabilidade 
+                de dados, realizado no John Deere Technology Innovation Center (Center for Digital 
+                Agriculture, UIUC). A solução auxilia produtores a avaliar o nível de confiança 
+                dos dados de sensores para melhores tomadas de decisão na produção animal.
+            </p>
+            <a href="https://uespi.br/professora-da-uespi-em-corrente-se-destaca-em-projeto-de-inovacao-nos-estados-unidos/" 
+               target="_blank" class="news-link">
+                <span data-lang="en" class="visible">Read full story</span>
+                <span data-lang="pt">Leia a matéria completa</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <p class="section-label">
+        <span data-lang="en" class="visible">Open Source</span>
+        <span data-lang="pt">Código Aberto</span>
+    </p>
+    <h2 class="section-title">
+        <span data-lang="en" class="visible">Projects</span>
+        <span data-lang="pt">Projetos</span>
+    </h2>
+    <div class="projects-grid">
+
+        <div class="project-card">
+            <div class="project-icon"><i class="fa-solid fa-wave-square"></i></div>
+            <h3>EchoMetrics</h3>
+            <p data-lang="en" class="visible">
+                Web tool for measuring Longissimus dorsi muscle area (AOL) and subcutaneous fat 
+                thickness (EGS) from B-mode ultrasound images. Interactive annotation, pixel-to-cm 
+                calibration, and batch Excel export — no installation required.
+            </p>
+            <p data-lang="pt">
+                Ferramenta web para medição da área de olho de lombo (AOL) e espessura de gordura 
+                subcutânea (EGS) em imagens de ultrassom modo-B. Anotação interativa, calibração 
+                pixel-cm e exportação em lote para Excel — sem instalação.
+            </p>
+            <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Flask</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">OpenCV</span>
+            </div>
+            <div class="project-links">
+                <a href="https://echometrics-m33u.onrender.com" target="_blank" class="project-btn solid">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span data-lang="en" class="visible">Live App</span>
+                    <span data-lang="pt">Acessar</span>
+                </a>
+                <a href="https://github.com/CintiaAraujo-Zoo/EchoMetrics" target="_blank" class="project-btn outline">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-icon"><i class="fa-solid fa-temperature-half"></i></div>
+            <h3>Thermography Sheep</h3>
+            <p data-lang="en" class="visible">
+                Python tool for extracting spot temperature measurements from FLIR radiometric 
+                JPEG images using the full Planck-based emissivity correction formula. 
+                Batch processing with Excel export.
+            </p>
+            <p data-lang="pt">
+                Ferramenta Python para extração de spots de temperatura em imagens radiométricas 
+                FLIR (.jpg) com correção de emissividade pela fórmula de Planck. 
+                Processamento em lote e exportação para Excel.
+            </p>
+            <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">FLIR</span>
+                <span class="project-tag">Thermography</span>
+                <span class="project-tag">NumPy</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/CintiaAraujo-Zoo/Termography_Sheep" target="_blank" class="project-btn solid">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+    <p class="section-label">
+        <span data-lang="en" class="visible">Research Output</span>
+        <span data-lang="pt">Produção Científica</span>
+    </p>
+    <h2 class="section-title">
+        <span data-lang="en" class="visible">Publications</span>
+        <span data-lang="pt">Publicações</span>
+    </h2>
+
+    <div class="pub-list">
+
+        <div class="pub-item">
+            <div class="pub-title">Mitigação de Gases de Efeito Estufa em Caprinos e Ovinos: Tecnologias e Estratégias Produtivas</div>
+            <div class="pub-authors">Araújo, C.M.; Silva, E.O.; Simão, J.J.F.; Mota, I.M.; Gois, G.C.; Araújo, C.A.</div>
+            <div class="pub-journal">Diversitas Journal, 2025</div>
+            <a href="https://doi.org/10.48017/dj.v10i4.3619" target="_blank" class="pub-doi"><i class="fa-solid fa-link"></i> doi:10.48017/dj.v10i4.3619</a>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-title">Água salina na produção animal: impactos no solo e efeitos indiretos sobre as forragens</div>
+            <div class="pub-authors">Silva, A.G.A.; Araújo, C.M.; Coelho, D.F.S.; Bezerra, J.D.V.; Gois, G.C.; Souza, R.C.R.; Araújo, C.A.</div>
+            <div class="pub-journal">Diversitas Journal, 2025</div>
+            <a href="https://doi.org/10.48017/dj.v10i4.3620" target="_blank" class="pub-doi"><i class="fa-solid fa-link"></i> doi:10.48017/dj.v10i4.3620</a>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-title">Supplementation in the last third of pregnancy in Nellore cows: calf performance and economics of the post-weaning phase</div>
+            <div class="pub-authors">de Barros Melo, T.T.; de Santana Júnior, H.A.; Santana, E.O.C.; de Araújo, C.M.; et al.</div>
+            <div class="pub-journal">Semina: Ciências Agrárias, v.45, n.5, 2024</div>
+            <a href="https://doi.org/10.5433/1679-0359.2024v45n5p1665" target="_blank" class="pub-doi"><i class="fa-solid fa-link"></i> doi:10.5433/1679-0359.2024v45n5p1665</a>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-title">Nutritional and mineral composition of Opuntia stricta Haw: Balance of macrominerals, renal function and blood metabolites in sheep</div>
+            <div class="pub-authors">Silva, M.P.; Carvalho, F.F.R.; Batista, Â.M.V.; Araujo, C.M.; Soares, P.C.; Souza, A.P.; et al.</div>
+            <div class="pub-journal">Arquivo Brasileiro de Medicina Veterinária e Zootecnia, 2023</div>
+            <a href="https://doi.org/10.1590/1678-4162-12802" target="_blank" class="pub-doi"><i class="fa-solid fa-link"></i> doi:10.1590/1678-4162-12802</a>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-title">Accuracy of Techniques for Predicting Gas Production by Ruminants Associated with Diet</div>
+            <div class="pub-authors">Suassuna, J.M.A.; de Andrade, A.P.; Menezes, D.R.; Teles, Y.C.F.; Araujo, C.M.; Lima, L.K.S.; et al.</div>
+            <div class="pub-journal">Fermentation, v.9, n.1, 2022</div>
+            <a href="https://doi.org/10.3390/fermentation9010039" target="_blank" class="pub-doi"><i class="fa-solid fa-link"></i> doi:10.3390/fermentation9010039</a>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-title">Inclusion of Opuntia stricta (Haw.) in sheep diets affects nutrition and the physicochemical characteristics of the rumen content</div>
+            <div class="pub-authors">Araujo, C.M.; et al.</div>
+            <div class="pub-journal">Revista Brasileira de Zootecnia, 2020</div>
+            <a href="https://doi.org/10.37496/rbz4920190271" target="_blank" class="pub-doi"><i class="fa-solid fa-link"></i> doi:10.37496/rbz4920190271</a>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-title">Gas production and in vitro degradability of sheep diets containing propolis ethanolic extract</div>
+            <div class="pub-authors">Araujo, C.M.; et al.</div>
+            <div class="pub-journal">Revista Brasileira de Saúde e Produção Animal, 2018</div>
+            <a href="https://doi.org/10.1590/s1519-99402018000300005" target="_blank" class="pub-doi"><i class="fa-solid fa-link"></i> doi:10.1590/s1519-99402018000300005</a>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-title">New insights on the metabolism of ricinoleic acid in ruminants</div>
+            <div class="pub-authors">Araujo, C.M.; et al.</div>
+            <div class="pub-journal">Journal of Dairy Science, 2017</div>
+            <a href="https://doi.org/10.3168/jds.2017-13117" target="_blank" class="pub-doi"><i class="fa-solid fa-link"></i> doi:10.3168/jds.2017-13117</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p style="margin-bottom:10px; color:rgba(255,255,255,0.85); font-family:'Lora',serif; font-size:1rem;">Cintia M. Araujo</p>
+    <p style="margin-bottom:16px;">
+        <a href="https://github.com/CintiaAraujo-Zoo" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a> &nbsp;·&nbsp;
+        <a href="https://orcid.org/0000-0002-7035-7190" target="_blank"><i class="fa-brands fa-orcid"></i> ORCID</a> &nbsp;·&nbsp;
+        <a href="http://lattes.cnpq.br/8418126351046298" target="_blank"><i class="fa-solid fa-id-card"></i> Lattes</a> &nbsp;·&nbsp;
+        <a href="https://www.linkedin.com/in/cintia-araujo-261665a2/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    </p>
+    <p>© 2025 Cintia M. Araujo &nbsp;·&nbsp;
+        <span data-lang="en" class="visible">Hosted on GitHub Pages</span>
+        <span data-lang="pt">Hospedado no GitHub Pages</span>
+    </p>
+</footer>
+
+<script>
+function setLang(lang) {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+    });
+    document.querySelectorAll('[data-lang]').forEach(el => {
+        el.classList.toggle('visible', el.dataset.lang === lang);
+    });
+    document.querySelectorAll('.nav-links a[data-en]').forEach(a => {
+        a.textContent = lang === 'en' ? a.dataset.en : a.dataset.pt;
+    });
+    localStorage.setItem('lang', lang);
+}
+
+const saved = localStorage.getItem('lang') || 'en';
+setLang(saved);
+
+// Scroll-reveal
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.style.animation = 'fadeUp 0.5s ease both';
+            observer.unobserve(e.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.project-card, .news-card, .pub-item').forEach(el => {
+    el.style.opacity = '0';
+    observer.observe(el);
+});
+</script>
+</body>
+</html>
