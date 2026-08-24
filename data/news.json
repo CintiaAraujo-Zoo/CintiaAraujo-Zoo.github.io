@@ -1,22 +1,21 @@
 [
   {
     "id": "2093381e-ed77-454f-b603-c67816dc369e",
+    "published": true,
     "date": "2026-03-01",
     "category": "award",
     "featured": true,
-    "badge_en": "2nd Place",
-    "badge_pt": "2º Lugar",
-    "badge_sub_en": "Smart Livestock Category",
-    "badge_sub_pt": "Categoria Smart Livestock",
-    "title_en": "2nd Place at the Precision & Digital Agriculture Hackathon — UIUC",
     "title_pt": "2º Lugar no Hackathon de Agricultura de Precisão e Digital — UIUC",
-    "location": "UIUC — Urbana-Champaign, Illinois",
-    "summary_en": "As part of team Confusion_Matrix, we developed a livestock trough monitoring system using image analysis and data reliability indicators at the John Deere Technology Innovation Center (Center for Digital Agriculture, UIUC). The solution helps producers assess the confidence level of sensor data for better decision-making in animal production systems.",
+    "title_en": "2nd Place at the Precision & Digital Agriculture Hackathon — UIUC",
     "summary_pt": "Como parte da equipe Confusion_Matrix, desenvolvemos um sistema de monitoramento de cochos utilizando análise de imagens e indicadores de confiabilidade de dados no John Deere Technology Innovation Center (Center for Digital Agriculture, UIUC). A solução auxilia produtores a avaliar o nível de confiança dos dados de sensores para melhores tomadas de decisão na produção animal.",
-    "image": "",
-    "link": "https://uespi.br/professora-da-uespi-em-corrente-se-destaca-em-projeto-de-inovacao-nos-estados-unidos/",
-    "link_label_en": "Read full story",
+    "summary_en": "As part of team Confusion_Matrix, we developed a livestock trough monitoring system using image analysis and data reliability indicators at the John Deere Technology Innovation Center (Center for Digital Agriculture, UIUC). The solution helps producers assess the confidence level of sensor data for better decision-making in animal production systems.",
+    "location": "UIUC — Urbana-Champaign, Illinois",
+    "link": "https://cidadeverde.com/corrente/133132/professora-da-uespi-de-corrente-e-destaque-em-evento-internacional-sobre-pecuaria-inteligente",
     "link_label_pt": "Leia a matéria completa",
-    "published": true
+    "link_label_en": "Read full story",
+    "badge_pt": "2º Lugar",
+    "badge_en": "2nd Place",
+    "badge_sub_pt": "Categoria Smart Livestock",
+    "badge_sub_en": "Smart Livestock Category"
   }
 ]
