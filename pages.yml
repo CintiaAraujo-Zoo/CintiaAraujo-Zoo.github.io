@@ -1,0 +1,188 @@
+media:
+- name: site_images
+  label: Imagens do site
+  input: assets/images
+  output: /assets/images
+  extensions:
+  - jpg
+  - jpeg
+  - png
+  - webp
+  - gif
+  rename: safe
+settings:
+  commit:
+    identity: app
+    templates:
+      create: 'content: adicionar {path}'
+      update: 'content: atualizar {path}'
+      delete: 'content: remover {path}'
+      rename: 'content: renomear {oldPath} -> {newPath}'
+content:
+- name: updates
+  label: Notícias e updates
+  type: file
+  path: data/news.json
+  format: json
+  list: true
+  operations:
+    create: false
+    rename: false
+    delete: false
+  fields:
+  - name: id
+    label: ID
+    type: uuid
+    hidden: true
+    options:
+      editable: false
+  - name: published
+    label: Publicado
+    type: boolean
+    default: true
+    description: Desative para manter o item salvo sem exibi-lo no site.
+  - name: date
+    label: Data
+    type: date
+    required: true
+    options:
+      format: yyyy-MM-dd
+  - name: category
+    label: Categoria
+    type: select
+    required: true
+    options:
+      values:
+      - name: research
+        label: Pesquisa
+      - name: publication
+        label: Publicação
+      - name: award
+        label: Premiação
+      - name: conference
+        label: Evento / Congresso
+      - name: teaching
+        label: Ensino
+      - name: project
+        label: Projeto
+      - name: outreach
+        label: Extensão
+      - name: update
+        label: Atualização
+  - name: featured
+    label: Destaque
+    type: boolean
+    default: false
+    description: Quando ativado, o card recebe maior destaque visual.
+  - name: title_pt
+    label: Título — Português
+    type: string
+    required: true
+  - name: title_en
+    label: Título — Inglês
+    type: string
+    required: true
+  - name: summary_pt
+    label: Resumo — Português
+    type: text
+    required: true
+  - name: summary_en
+    label: Resumo — Inglês
+    type: text
+    required: true
+  - name: location
+    label: Local
+    type: string
+    description: 'Opcional. Ex.: UIUC — Urbana-Champaign, Illinois.'
+  - name: image
+    label: Imagem
+    type: image
+    options:
+      media: site_images
+      extensions:
+      - jpg
+      - jpeg
+      - png
+      - webp
+      rename: safe
+    description: Opcional. Se ficar vazio, o site usa o ícone da categoria.
+  - name: link
+    label: Link
+    type: string
+    description: Opcional. Pode ser DOI, notícia externa, página de evento, projeto
+      etc.
+  - name: link_label_pt
+    label: Texto do link — Português
+    type: string
+    default: Saiba mais
+  - name: link_label_en
+    label: Texto do link — Inglês
+    type: string
+    default: Read more
+  - name: badge_pt
+    label: Chamada visual — Português
+    type: string
+    description: 'Opcional. Ex.: 2º Lugar.'
+  - name: badge_en
+    label: Chamada visual — Inglês
+    type: string
+    description: 'Opcional. Ex.: 2nd Place.'
+  - name: badge_sub_pt
+    label: Complemento visual — Português
+    type: string
+    description: Opcional.
+  - name: badge_sub_en
+    label: Complemento visual — Inglês
+    type: string
+    description: Opcional.
+- name: publications
+  label: Publicações científicas
+  type: file
+  path: data/publications.json
+  format: json
+  list: true
+  operations:
+    create: false
+    rename: false
+    delete: false
+  fields:
+  - name: id
+    label: ID
+    type: uuid
+    hidden: true
+    options:
+      editable: false
+  - name: published
+    label: Exibir no site
+    type: boolean
+    default: true
+    description: Desative para manter a referência salva sem mostrá-la no site.
+  - name: year
+    label: Ano
+    type: number
+    required: true
+  - name: title
+    label: Título
+    type: string
+    required: true
+  - name: authors
+    label: Autores
+    type: text
+    required: true
+  - name: journal
+    label: Periódico / referência
+    type: string
+    required: true
+    description: 'Ex.: Animal Production Science, 2026.'
+  - name: doi
+    label: DOI
+    type: string
+    description: 'Informe somente o DOI (ex.: 10.1234/abcd.123) ou cole a URL do DOI.'
+  - name: url
+    label: Link alternativo
+    type: string
+    description: Opcional. Usado quando a publicação não possui DOI.
+  - name: link_label
+    label: Texto do link alternativo
+    type: string
+    default: View publication
