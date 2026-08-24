@@ -17,5 +17,23 @@
     "badge_en": "2nd Place",
     "badge_sub_pt": "Categoria Smart Livestock",
     "badge_sub_en": "Smart Livestock Category"
+  },
+  {
+    "id": "04c7548d-185a-4f78-84ce-2e53a691e815",
+    "published": true,
+    "date": "2026-06-24",
+    "category": "update",
+    "featured": false,
+    "title_pt": "Doutorado Sanduíche pelo PDSE/CAPES na University of Illinois at Urbana-Champaign (UIUC)",
+    "title_en": "Visiting PhD period through the PDSE/CAPES program at the University of Illinois at Urbana-Champaign (UIUC)",
+    "summary_pt": "Entre setembro de 2025 e maio de 2026, realizei meu Doutorado Sanduíche pelo PDSE/CAPES na University of Illinois at Urbana-Champaign (UIUC), junto ao Department of Animal Sciences — ACES.\n\nSob a supervisão do Prof. Dr. Tiago Bresolin, integrei o iPhenogenomics — Illinois Phenomics and Genomics Research Group. Durante esses nove meses, aprofundei meus conhecimentos em imagens de profundidade, processamento digital de imagens, modelagem de dados e redes neurais aplicadas à produção animal.",
+    "summary_en": "From September 2025 to May 2026, I had the opportunity to complete my visiting PhD period through the PDSE/CAPES program at the University of Illinois at Urbana-Champaign (UIUC), within the Department of Animal Sciences — ACES.\n\nUnder the supervision of Prof. Dr. Tiago Bresolin, I joined the iPhenogenomics — Illinois Phenomics and Genomics Research Group. During these nine months, I expanded my knowledge of depth imaging, digital image processing, data modeling, and neural networks applied to animal production.",
+    "location": "UIUC - Urbana-Champaign, Illinois",
+    "image": "/assets/images/chatgpt-image-12-de-jun-de-2026-203439.png",
+    "link": "https://www.linkedin.com/posts/cintia-araujo-261665a2_pdse-capes-uiuc-activity-7471345188955914240-ku4m?utm_source=share&utm_medium=member_desktop&rcm=ACoAABXPcSkByMt79mB597XrurPcNSbJrqkJYS0",
+    "link_label_pt": "Saiba mais",
+    "link_label_en": "Read more",
+    "badge_pt": "PDSE/CAPES",
+    "badge_en": "PDSE/CAPES"
   }
 ]
